@@ -11,7 +11,7 @@ The Logitech Trackman Marble lacks a physical scroll wheel. This repository prov
 Simply clone this repository and run the included installation script:
 
 ```bash
-git clone https://github.com/yourusername/logitech-marble-labwc.git
+git clone https://github.com/ldl805/logitech-marble-labwc.git
 cd logitech-marble-labwc
 ./install.py
 ```
