@@ -1,4 +1,4 @@
-# Logitech Trackman Marble (T-BC21) Scroll Emulation for Labwc
+# Logitech Trackman Marble (T-BC21) Scroll Emulation for Labwc Wayland Compositor.
 
 The Logitech Trackman Marble lacks a physical scroll wheel. This repository provides a script that safely configures the **Labwc** Wayland compositor to emulate scrolling. It allows you to hold down either of the small buttons (Left or Right) and move the trackball to act as a scroll wheel.
 
@@ -11,7 +11,7 @@ The Logitech Trackman Marble lacks a physical scroll wheel. This repository prov
 Simply clone this repository and run the included installation script:
 
 ```bash
-git clone https://github.com/ldl805/Logitech-Marble-Labwc.git
+git clone https://github.com/ldl805/logitech-marble-labwc.git
 cd logitech-marble-labwc
 ./install.py
 ```
