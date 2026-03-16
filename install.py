@@ -16,7 +16,7 @@ SCROLL_XML = """
       <mousebind button="Back" action="Release"><action name="DisableScrollWheelEmulation" /></mousebind>
       <mousebind button="Side" action="Press"><action name="EnableScrollWheelEmulation" /></mousebind>
       <mousebind button="Side" action="Release"><action name="DisableScrollWheelEmulation" /></mousebind>
-      
+
       <!-- Small right button -->
       <mousebind button="Forward" action="Press"><action name="EnableScrollWheelEmulation" /></mousebind>
       <mousebind button="Forward" action="Release"><action name="DisableScrollWheelEmulation" /></mousebind>
@@ -26,22 +26,25 @@ SCROLL_XML = """
   </mouse>
 """
 
+
 def main():
     print("Logitech Trackman Marble (T-BC21) Labwc Scroll Installer")
     print("========================================================")
-    
+
     if not os.path.exists(CONFIG_DIR):
         print(f"Creating directory: {CONFIG_DIR}")
         os.makedirs(CONFIG_DIR)
-        
+
     if not os.path.exists(CONFIG_FILE):
         if os.path.exists(SYSTEM_CONFIG):
-            print(f"Copying system default config from {SYSTEM_CONFIG} to {CONFIG_FILE}...")
+            print(
+                f"Copying system default config from {SYSTEM_CONFIG} to {CONFIG_FILE}...")
             shutil.copy(SYSTEM_CONFIG, CONFIG_FILE)
         else:
             print(f"Creating a minimal configuration at {CONFIG_FILE}...")
             with open(CONFIG_FILE, "w") as f:
-                f.write('<?xml version="1.0"?>\n<openbox_config xmlns="http://openbox.org/3.4/rc">\n</openbox_config>\n')
+                f.write(
+                    '<?xml version="1.0"?>\n<openbox_config xmlns="http://openbox.org/3.4/rc">\n</openbox_config>\n')
 
     with open(CONFIG_FILE, "r") as f:
         content = f.read()
@@ -63,19 +66,21 @@ def main():
         print("to your <mouse><context name=\"All\"> section in ~/.config/labwc/rc.xml:")
         print(SCROLL_XML)
         return
-        
+
     # Inject the scroll XML before </openbox_config>
     if "</openbox_config>" in content:
-        content = content.replace("</openbox_config>", SCROLL_XML + "</openbox_config>")
+        content = content.replace(
+            "</openbox_config>", SCROLL_XML + "</openbox_config>")
         with open(CONFIG_FILE, "w") as f:
             f.write(content)
         print("\n✅ Successfully added scroll emulation to rc.xml.")
-        
+
         print("Reloading labwc compositor...")
         os.system("labwc -r || killall -USR1 labwc >/dev/null 2>&1")
         print("Done! You can now hold either small button and move the ball to scroll.")
     else:
         print("\n❌ Error: Could not find </openbox_config> tag in your rc.xml. File might be malformed.")
+
 
 if __name__ == "__main__":
     main()

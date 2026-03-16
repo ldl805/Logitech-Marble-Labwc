@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logitech-marble-labwc"
+version = "0.1.0"
+authors = [
+  { name="ldl805" },
+]
+description = "Labwc scroll emulation for Logitech Trackman Marble"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.scripts]
+logitech-marble-labwc = "install:main"
+
+[tool.setuptools]
+py-modules = ["install"]
