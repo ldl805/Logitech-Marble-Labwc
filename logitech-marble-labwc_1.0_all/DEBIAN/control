@@ -1,0 +1,10 @@
+Package: logitech-marble-labwc
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, labwc
+Maintainer: ldl805 <ldl805@github.com>
+Description: Logitech Trackman Marble Scroll Emulation for Labwc
+ A configuration utility to enable scroll wheel emulation for the
+ Logitech Trackman Marble (T-BC21) trackball in the Labwc Wayland compositor.

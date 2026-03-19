@@ -1,30 +1,42 @@
-# Logitech Trackman Marble (T-BC21) Scroll Emulation for Labwc Wayland Compositor.
+# Logitech-Marble-Labwc
 
-The Logitech Trackman Marble lacks a physical scroll wheel. This repository provides a script that safely configures the **Labwc** Wayland compositor to emulate scrolling. It allows you to hold down either of the small buttons (Left or Right) and move the trackball to act as a scroll wheel.
+A simple Python script to enable scroll wheel emulation for the Logitech Trackman Marble (T-BC21) trackball in the **labwc** Wayland compositor.
 
-## Prerequisites
-- A system running the **Labwc** Wayland compositor.
-- Python 3
+## Features
+- Automatically detects and updates your `~/.config/labwc/rc.xml` file.
+- Backs up your existing configuration.
+- Supports both small buttons (Back/Forward) as scroll modifiers.
 
-## Installation
+## Installation (Recommended)
 
-Simply clone this repository and run the included installation script:
+### Option 1: Debian Package (Pi/Ubuntu/Debian)
 
-```bash
-git clone https://github.com/ldl805/logitech-marble-labwc.git
-cd logitech-marble-labwc
-./install.py
-```
-
-### What does it do?
-It safely modifies your local `~/.config/labwc/rc.xml` to add `mousebind` directives for `EnableScrollWheelEmulation` and `DisableScrollWheelEmulation`. It binds the `Back`, `Forward`, `Side`, and `Extra` mouse buttons (which map to the small trackball buttons) to act as scrolling modifiers for trackball movement.
-
-If you already have a custom `<mouse>` section defined in your `rc.xml`, the script will not overwrite it. Instead, it will safely print the necessary XML snippet to your terminal for you to add manually, preventing it from corrupting your custom bindings.
-
-## Reverting changes
-The installation script creates a backup of your previous configuration before making any modifications. To easily revert the changes, run:
+Download the latest `.deb` file from the [Releases](https://github.com/ldl805/Logitech-Marble-Labwc/releases) page and install it using:
 
 ```bash
-mv ~/.config/labwc/rc.xml.bak ~/.config/labwc/rc.xml
-labwc -r
+sudo apt update
+sudo apt install ./logitech-marble-labwc_1.0_all.deb
 ```
+
+Once installed, run the configuration utility:
+```bash
+logitech-marble-labwc
+```
+
+### Option 2: Run directly
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/ldl805/Logitech-Marble-Labwc.git
+    cd Logitech-Marble-Labwc
+    ```
+2.  Run the installer:
+    ```bash
+    python3 install.py
+    ```
+
+## Usage
+Once configured, hold down either of the small buttons on your Logitech Marble and move the ball to scroll in any direction.
+
+## License
+MIT License
