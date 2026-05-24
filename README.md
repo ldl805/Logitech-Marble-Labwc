@@ -22,7 +22,7 @@ Download the latest `.deb` file from the [Releases](https://github.com/ldl805/Lo
 
 ```bash
 sudo apt update
-sudo apt install ./logitech-marble-labwc_0.2.0_all.deb
+sudo apt install ./logitech-marble-labwc_1.1.0_all.deb
 ```
 
 Once installed, run the configuration utility:
