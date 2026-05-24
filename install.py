@@ -57,13 +57,13 @@ SCROLL_RIGHT_XML = """
 
 HWDB_RIGHT_MIDDLE = """# Logitech Trackman Marble (T-BC21) Button Remapping
 # Right small button (scancode 90005) -> middle click
-evdev:input:b0003v046dpC408*
+evdev:input:b0003v046DpC408*
  KEYBOARD_KEY_90005=btn_middle
 """
 
 HWDB_LEFT_MIDDLE = """# Logitech Trackman Marble (T-BC21) Button Remapping
 # Left small button (scancode 90004) -> middle click
-evdev:input:b0003v046dpC408*
+evdev:input:b0003v046DpC408*
  KEYBOARD_KEY_90004=btn_middle
 """
 
@@ -86,7 +86,7 @@ def setup_udev_hwdb(hwdb_content):
         print(f"✅ Successfully wrote hwdb rule to {HWDB_FILE}")
         print("Updating hardware database and triggering udev reload...")
         subprocess.run(["sudo", "systemd-hwdb", "update"], check=True)
-        subprocess.run(["sudo", "udevadm", "trigger"], check=True)
+        subprocess.run(["sudo", "udevadm", "trigger", "--action=change"], check=True)
         print("✅ udev database reloaded successfully.")
         return True
     except Exception as e:
@@ -108,7 +108,7 @@ def remove_udev_hwdb():
 
         print("Updating hardware database and triggering udev reload...")
         subprocess.run(["sudo", "systemd-hwdb", "update"], check=True)
-        subprocess.run(["sudo", "udevadm", "trigger"], check=True)
+        subprocess.run(["sudo", "udevadm", "trigger", "--action=change"], check=True)
         print("✅ Custom udev hwdb rule removed and database reloaded.")
         return True
     except Exception as e:
