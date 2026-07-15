@@ -527,7 +527,7 @@ def main():
     if connected is False:
         print("⚠️  Warning: Logitech Trackman Marble (T-BC21) was not detected on this system.")
         print("   Please check that the USB device is plugged in.")
-        if not args.non-interactive:
+        if not args.non_interactive:
             cont = input("Do you want to proceed with the configuration anyway? [y/N]: ").strip().lower()
             if cont != 'y':
                 print("Exiting.")
@@ -537,7 +537,7 @@ def main():
     choice = None
     if args.profile is not None:
         choice = str(args.profile)
-    elif args.non-interactive:
+    elif args.non_interactive:
         print("Running in non-interactive mode. Defaulting to profile 1.")
         choice = "1"
     else:

@@ -1,5 +1,4 @@
 import pytest
-import re
 from unittest.mock import patch, mock_open
 import install
 
